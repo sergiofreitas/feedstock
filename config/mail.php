@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'sergio.sgfreitas@gmail.com', 'name' => 'Contato Oauth'],
 
     /*
     |--------------------------------------------------------------------------
