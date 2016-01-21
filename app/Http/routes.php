@@ -70,8 +70,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/profile', 'HomeController@index');
+});
 
-    Route::get('/api', ['middleware' => 'oauth', function(){
-    	return ['status' => 'OK'];
-    }]);
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', /*['middleware' => 'oauth'],*/ function ($api) {
+	$api->get('/', '\App\Http\Controllers\ResourceController@index');
+
+	$api->post('/', '\App\Http\Controllers\ResourceController@create');
 });
